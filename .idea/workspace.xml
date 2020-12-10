@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4d4fb435-f1f4-48a0-a34f-6877fbdabb0a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Provider/LaraExtServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collectionMacros.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/helpers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/strMacros.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test-bootstrap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/CollectionMacrosTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/BufferTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/ChunkedGeneratorTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/ChunkedTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/CursorGetTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/GroupByConsecutiveTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/IteratorForTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/JoinedTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Helper/MappedTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/Provider/LaraExtServiceProviderTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/StrMacrosTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Cases/TestCase.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1lSek8hTcHVWntubhtGdR7veFtx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/test/Cases" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Multirun.All">
+    <configuration name="All" type="Multirun" factoryName="Multirun" separateTabs="false" reuseTabsWithFailures="true" startOneByOne="true" markFailedProcess="true" hideSuccessProcess="false" delayTime="0.0">
+      <runConfiguration name="All - PHP 7.3 - Laravel 5.8" type="PHPUnit" />
+      <runConfiguration name="All - PHP 7.3 - Laravel 6" type="PHPUnit" />
+      <runConfiguration name="All - PHP 7.3 - Laravel 7" type="PHPUnit" />
+      <runConfiguration name="All - PHP 7.3 - Laravel 8" type="PHPUnit" />
+      <runConfiguration name="All - PHP 7.4 - Laravel 5.8" type="PHPUnit" />
+      <runConfiguration name="All - PHP 7.4 - Laravel 6" type="PHPUnit" />
+      <runConfiguration name="All - PHP 7.4 - Laravel 7" type="PHPUnit" />
+      <runConfiguration name="All - PHP 7.4 - Laravel 8" type="PHPUnit" />
+      <runConfiguration name="All - PHP 8.0 - Laravel 7" type="PHPUnit" />
+      <runConfiguration name="All - PHP 8.0 - Laravel 8" type="PHPUnit" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.3 - Laravel 5.8" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.3" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:5.8.* orchestra/testbench:3.8.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.3 - Laravel 6" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.3" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:6.* orchestra/testbench:4.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.3 - Laravel 7" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.3" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:7.* orchestra/testbench:5.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.3 - Laravel 8" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.3" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:8.* orchestra/testbench:6.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.4 - Laravel 5.8" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.4" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:5.8.* orchestra/testbench:3.8.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.4 - Laravel 6" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.4" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:6.* orchestra/testbench:4.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.4 - Laravel 7" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.4" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:7.* orchestra/testbench:5.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 7.4 - Laravel 8" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 7.4" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:8.* orchestra/testbench:6.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 8.0 - Laravel 7" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 8.0" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:7.* orchestra/testbench:5.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All - PHP 8.0 - Laravel 8" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 8.0" />
+        </PhpTestInterpreterSettings>
+        <envs>
+          <env name="TEST_PACKAGES" value="laravel/framework:8.* orchestra/testbench:6.*" />
+        </envs>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="Homestead PHP 8.0" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" directory="$PROJECT_DIR$/test/Cases" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Multirun.All" />
+      <item itemvalue="PHPUnit.All - PHP 7.3 - Laravel 5.8" />
+      <item itemvalue="PHPUnit.All - PHP 7.3 - Laravel 6" />
+      <item itemvalue="PHPUnit.All - PHP 7.3 - Laravel 7" />
+      <item itemvalue="PHPUnit.All - PHP 7.3 - Laravel 8" />
+      <item itemvalue="PHPUnit.All - PHP 7.4 - Laravel 5.8" />
+      <item itemvalue="PHPUnit.All - PHP 7.4 - Laravel 6" />
+      <item itemvalue="PHPUnit.All - PHP 7.4 - Laravel 7" />
+      <item itemvalue="PHPUnit.All - PHP 7.4 - Laravel 8" />
+      <item itemvalue="PHPUnit.All - PHP 8.0 - Laravel 7" />
+      <item itemvalue="PHPUnit.All - PHP 8.0 - Laravel 8" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d4fb435-f1f4-48a0-a34f-6877fbdabb0a" name="Default Changelist" comment="" />
+      <created>1607595060913</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607595060913</updated>
+      <workItem from="1607595062251" duration="7428000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
