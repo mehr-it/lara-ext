@@ -22,35 +22,47 @@ This package uses Laravel's auto package detection
 
 Following macros extend the `Illuminate\Support\Collection`:
 
-| Macro            | Description
-|-------------------| ------------
-| `diffBy`            | array_diff with custom comparator
-| `diffAssocBy`        | associative array_diff with custom comparators
-| `sortCallback`    | sort using custom sort function
+| Macro              | Description
+|--------------------| ------------
+| `diffBy`           | `array_diff()` with custom comparator
+| `diffAssocBy`      | associative `array_diff()` with custom comparators
+| `sortCallback`     | sort using custom sort function
 | `sortCallbackDesc` | sort in descending order using custom sort function
 
 ## String macros
 
-| Macro            | Description
-|-------------------| ------------
-| `extract`            | as explode but guarantees a given result array length, eg.: `[$a, $b] = Str::extract('a:b:c', ':', 2)`
-| `replaceLineBreaks`| Replaces all line breaks (Linux, Windows and Mac (old and OS X)) in a string
+Following macros extend the `Illuminate\Support\Str`:
+
+| Macro              | Description
+|--------------------| ------------
+| `cast`             | Casts given value as string. If iterable is given, it's items are casted as string
+| `cutEncoding`      | truncates a string, so it does not exceed a given byte length, when converted to a given target encoding
+| `extract`          | as explode but guarantees a given result array length, eg.: `[$a, $b] = Str::extract('a:b:c', ':', 2)`
+| `isEmpty`          | returns if the given string is empty or only contains whitespace
+| `isNotEmpty`       | returns if the given string is not empty and does not only contains whitespace
+| `replaceLineBreaks`| replaces all line breaks (Linux, Windows and Mac (old and OS X)) in a string
+| `ucFirstWords`     | converts the first letter of each word to uppercase
+| `repairInvalidUnicodeSequences`     | replaces invalid unicode sequences
+| `limitMax`         | limits a string to the given max length
 
 ## Helpers
 
-| Macro            | Description
-|-------------------| ------------
-| `buffer`            | creates a new `FlushingBuffer` instance
-| `chunked`            | `array_chunk()` for generators
-| `chunked_generator`  | Processes data from a generator in chunks and returns a generator with the processed data
-| `mapped`            | `array_map()` for generators
-| `joined`            | joins two collections and passes the tuples to a callback
-| `cursor_get`        | `data_get()` for iterators
-| `iterator_for`    | gets an iterator for the given value
-| `group_by_consecutive`    | groups data by given field (requires consecutive order of group values)
+| Helper             | Description
+|--------------------| ------------
+| `buffer`           | creates a new `FlushingBuffer` instance
+| `chunked`          | `array_chunk()` for generators
+| `chunked_generator`| Processes data from a generator in chunks and returns a generator with the processed data
+| `cursor_get`       | `data_get()` for iterators
+| `group_by_consecutive` | groups data by given field (requires consecutive order of group values)
+| `iterator_for`     | gets an iterator for the given value
+| `joined`           | joins two collections and passes the tuples to a callback
+| `mapped`           | `array_map()` for generators
+| `trans_default`    | like `trans()` but returning a given default value if not translatable 
+| `type_name`        | returns the class name or the type of the given variable 
+| `with_locale`      | sets the specified app locale for the given callback 
 
 
-## Additional helpers
+## Helpers
 
 ### buffer()
 
@@ -99,13 +111,37 @@ The `chunked_generator()`-function is very similar to the `chunked()`-function b
 		yield /* ... */
 	});
 
-### mapped()
+### cursor_get()
 
-The `mapped()`-function behaves like the `array_map()`-function but may also be used with generators:
+The `cursor_get()` helper iterates the passed items (cursor, collection, array, ...) and uses `data_get()` to receive a value for each item which will be returned by the returned generator. You may also pass a closure as field parameter which returns the value for each item:
 
-	$generator = function() { /* generator code */ };
+	$data = [
+		['x' => ['y' => 7]],
+		['x' => ['y' => 8]],
+	];
 	
-	$mappedGenerator = mapped($generator, function($v) { /* mapping code */ });
+	foreach(cursor_get($data, 'x.y') as $v) {
+		echo $v;
+	}
+	// => 7
+	// => 8
+
+### group_by_consecutive()
+
+The `group_by_consecutive()` helper groups data from given iterator or array by a given key. A new group is started as soon as an item's group value does not match the last item's group value. Therefore same group values must occur consecutively in the input for correct output grouping. Group values are compared using strict comparison.
+
+	$data = [ ['x' => 15, 'y' => 'a'], ['x' => 16, 'y' => 'a'], ['x' => 17, 'y' => 'b'] ];
+
+	$iter = group_by_consecutive($data, 'y');
+	
+	// => [ ['x' => 15, 'y' => 'a'], ['x' => 16, 'y' => 'a'] ]
+	// => [ ['x' => 17, 'y' => 'b'] ]
+
+### iterator_for()
+
+The `iterator_for()` helper creates an iterator for the given value. Iterators are returned as they are, for arrays an ArrayIterator is returned and all other values are returned as the first item of an array iterator, if they are not null. Passing null will return an EmptyIterator.
+
+	$iter = iterator_for(['a', 'b']);
 
 ### joined()
 
@@ -129,37 +165,49 @@ This would call `User::whereIn('username', /* .. */)->get()` to receive the righ
 		/* do s.th. here */
 	});
 
-### cursor_get()
+### mapped()
 
-The `cursor_get()` helper iterates the passed items (cursor, collection, array, ...) and uses `data_get()` to receive a value for each item which will be returned by the returned generator. You may also pass a closure as field parameter which returns the value for each item:
+The `mapped()`-function behaves like the `array_map()`-function but may also be used with generators:
 
-	$data = [
-		['x' => ['y' => 7]],
-		['x' => ['y' => 8]],
-	];
+	$generator = function() { /* generator code */ };
 	
-	foreach(cursor_get($data, 'x.y') as $v) {
-		echo $v;
-	}
-	// => 7
-	// => 8
+	$mappedGenerator = mapped($generator, function($v) { /* mapping code */ });
 
-### iterator_for()
+### trans_default()
 
-The `iterator_for()` helper creates an iterator for the given value. Iterators are returned as they are, for arrays an ArrayIterator is returned and all other values are returned as the first item of an array iterator, if they are not null. Passing null will return an EmptyIterator.
+The `trans_default()` helper extends the `trans()` helper by the ability to add a default value which is used, if the value cannot be translated. If a translation exists at the fallback locale, it still takes precedence over the default value.
 
-	$iter = iterator_for(['a', 'b']);
+    trans_default('app.myTranslationKey', 'The default value');
 
-### group_by_consecutive()
 
-The `group_by_consecutive()` helper groups data from given iterator or array by a given key. A new group is started as soon as an item's group value does not match the last item's group value. Therefore same group values must occur consecutively in the input for correct output grouping. Group values are compared using strict comparison.
+### type_name()
 
-	$data = [ ['x' => 15, 'y' => 'a'], ['x' => 16, 'y' => 'a'], ['x' => 17, 'y' => 'b'] ];
+The `type_name()` helper returns the class name of the given variable. If the variable is
+not an object, the type (as returned by `gettype()`, but always lowercase) will be returned
 
-	$iter = group_by_consecutive($data, 'y');
-	
-	// => [ ['x' => 15, 'y' => 'a'], ['x' => 16, 'y' => 'a'] ]
-	// => [ ['x' => 17, 'y' => 'b'] ]
+    type_name(new MyClass());
+    // => 'MyClass'
+
+    type_name('a');
+    // => 'string'
+
+    type_name(null);
+    // => 'null'
+
+### with_locale()
+
+The `with_locale()` helper temporarily sets the application locale to a specified value
+and reverts it after return of the given callback:
+
+    // locale is 'en'
+
+    with_locale('de', function() {
+
+        // locale is 'de'
+
+    });
+
+    // locale is 'en'
 
 
 ## Migrating from its-mieger/lara-ext

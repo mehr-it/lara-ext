@@ -334,3 +334,63 @@
 				yield $groupItems;
 		}
 	}
+
+
+	if (!function_exists('type_name')) {
+
+		/**
+		 * Gets the type of the given variable. For objects the class name will be returned
+		 * @param mixed $var The variable
+		 * @return string The type or class name
+		 */
+		function type_name($var): string {
+
+			return is_object($var) ? get_class($var) : strtolower(gettype($var));
+
+		}
+	}
+
+	if (!function_exists('trans_default')) {
+
+		/**
+		 * Translates the given key. If not available, the default value is returned
+		 * @param string $key The key
+		 * @param string|null|mixed $default The default value
+		 * @param array $replace The replacements
+		 * @param string|null $locale The locale
+		 * @return array|string|null The translated string
+		 */
+		function trans_default($key, $default = null, array $replace = [], string $locale = null) {
+
+			$ret = __($key, $replace, $locale);
+
+			if ($ret === $key)
+				$ret = $default;
+
+			return $ret;
+		}
+	}
+
+	if (!function_exists('with_locale')) {
+
+		/**
+		 * Switches the application locale for the execution of the given callback
+		 * @param string $locale The locale
+		 * @param callable $callback The callback
+		 * @return mixed The callback return
+		 */
+		function with_locale(string $locale, callable $callback) {
+
+			$localeBefore = app()->getLocale();
+
+			app()->setLocale($locale);
+
+			try {
+				return call_user_func($callback);
+			}
+			finally {
+				app()->setLocale($localeBefore);
+			}
+
+		}
+	}

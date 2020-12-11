@@ -89,47 +89,77 @@
 
 			}
 
+			/**
+			 * Ensures the given maximum byte length when string is converted to target encoding. The function
+			 * converts the string to target charset, truncates it and converts ist back to application
+			 * encoding.
+			 * @param string|null $string The string
+			 * @param int $maxBytes The maximum number of bytes
+			 * @param string $targetEncoding The target encoding, which the string should be truncated for
+			 * @return string|null The converted string
+			 */
+			public static function cutEncoding(?string $string, int $maxBytes, string $targetEncoding): ?string {
+
+			}
+
+			/**
+			 * Returns if the given string is empty or only contains whitespace
+			 * @param string|null $value The value
+			 * @return bool True if string is empty. Else false.
+			 */
+			public static function isEmpty(?string $value): bool {
+
+			}
+
+			/**
+			 * Returns if the given string is not empty and does not only contains whitespace
+			 * @param string|null $value The value
+			 * @return bool True if string is not empty. Else false.
+			 */
+			public static function isNotEmpty(?string $value): bool {
+
+			}
+
+			/**
+			 * Converts the first letter of each word to uppercase
+			 * @param string|null $value The string
+			 * @param bool $forceLower True if to force any following word letters to be lowercase
+			 * @param int $forceLowerMinLength Set the minimum length of words to force lowercase suffix for
+			 * @param string $splitByRegex The regex to split the words. Anything not matching the regex will be considered as word
+			 * @return string|null
+			 */
+			public static function ucFirstWords(?string $value, bool $forceLower = false, int $forceLowerMinLength = 0, string $splitByRegex = '[^\p{L}]+'): ?string {
+
+			}
+
+			/**
+			 * Replaces invalid unicode sequences
+			 * @param string|null $str The string
+			 * @param string $replacement The replacement for invalid sequences
+			 * @return string|null The string
+			 */
+			public static function repairInvalidUnicodeSequences(?string $str, string $replacement = "\u{FFFD}"): ?string {
+
+			}
+
+			/**
+			 * Limits a string to the given max length
+			 * @param string|null $value The value
+			 * @param int $limit The max limit
+			 * @param string $end The end in case of truncation
+			 * @return string|null The truncated string
+			 */
+			public static function limitMax(?string $value, int $limit = 100, string $end = '...'): ?string {
+
+			}
+
+			/**
+			 * Casts given value as string. If iterable is given, it's items are casted as string
+			 * @param mixed $value The value
+			 * @return string|string[] The casted value
+			 */
+			public static function cast($value) {
+
+			}
 		}
-
-		/**
-		 * Creates a buffer which is automatically flushed if it is full.
-		 * @param int $size The buffer size. You may pass 0 or a negative value if the buffer should not be flushed automatically.
-		 * @param callable $flushHandler Handler function which will be called on flush and receive the buffer contents as first parameter
-		 * @param callable $collectionResolver Resolver for the underlying collection. This is called each time an empty collection is initialized and must return an
-		 * empty collection instance. If omitted an array is used as underlying collection. Also a function name or a class name which is resolved via service container may be passed.
-		 * @return \MehrIt\Buffer\FlushingBuffer
-		 */
-		function buffer($size, callable $flushHandler, $collectionResolver = null) { }
-
-		/**
-		 * Calls the given handler with chunks of the provided data. The last chunk's size may by less than the
-		 * specified chunk size. This function "streams" the data using a flushing buffer internally.
-		 * @param \Iterator|IteratorAggregate|ArrayAccess|[]|\Closure $data The source data
-		 * @param int $size The chunk size
-		 * @param callable $flushHandler Handler function which will receive the chunk data
-		 * @param callable|string $collectionResolver Resolver for the underlying collection. This is called each time an empty collection is initialized and must return an
-		 * empty collection instance. If omitted an array is used as underlying collection. Also a function name or a class name which is resolved via service container may be passed.
-		 */
-		function chunked($data, $size, callable $flushHandler, $collectionResolver = null) { }
-
-		/**
-		 * Calls the given callback with values of left and right collection joined by given field values. NULL values are never treated as equal.
-		 * @param \Closure|Iterator|IteratorAggregate|[] $left The left side collection
-		 * @param string $leftField The left side field to use for joining
-		 * @param \Closure|Iterator|IteratorAggregate|[]|string|\Illuminate\Database\Query\Builder|\Illuminate\Database\Eloquent\Builder $right The right side collection. This may also be
-		 * a model class name or query builder instance for which queries are automatically executed
-		 * @param string $rightField The right field to use for joining
-		 * @param callable $callback The callback to be called with joined items. Will receive the left side item as first argument and the right side item as second
-		 * @param bool $all True to return all matching right side items for each left side item. Else only the first matching item will be returned
-		 */
-		function joined($left, $leftField, $right, $rightField, callable $callback, $all = false) { }
-
-		/**
-		 * Iterates the given cursor and gets and generates an item for each element using "dot" notation
-		 * @param Traversable|Iterator|IteratorAggregate|[]|ArrayAccess|Generator|function $cursor The data
-		 * @param string|\Closure $field The field in "dot" notation or a closure returning the field value
-		 * @param mixed $default The default value. This has no effect if a closure is passed as field
-		 * @return Generator The generator
-		 */
-		function cursor_get($cursor, $field, $default = null) { }
 	}
