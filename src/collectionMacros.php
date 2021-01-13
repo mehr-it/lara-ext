@@ -35,3 +35,9 @@
 	Collection::macro('sortCallbackDesc', function (callable $compareFn, $keepKeys = false) {
 		return $this->sortCallback($compareFn, $keepKeys, true);
 	});
+
+	Collection::macro('asKeys', function($value) {
+
+		return new static(array_fill_keys($this->items, $value));
+
+	});

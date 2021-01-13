@@ -28,6 +28,7 @@ Following macros extend the `Illuminate\Support\Collection`:
 | `diffAssocBy`      | associative `array_diff()` with custom comparators
 | `sortCallback`     | sort using custom sort function
 | `sortCallbackDesc` | sort in descending order using custom sort function
+| `asKeys`           | `array_fill_keys()` for collections
 
 ## String macros
 

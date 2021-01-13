@@ -165,4 +165,12 @@
 			$this->assertSame([0 => $a, 2 => $c, 1 => $b], $res->all());
 		}
 
+		public function testAsKeys() {
+			$this->assertSame(['a' => true, 'b' => true, 'c' => true], collect(['a', 'b', 'c'])->asKeys(true)->all());
+			$this->assertSame(['a' => null, 'b' => null, 'c' => null], collect(['a', 'b', 'c'])->asKeys(null)->all());
+
+			$cls = new \stdClass();
+			$this->assertSame(['a' => $cls, 'b' => $cls, 'c' => $cls], collect(['a', 'b', 'c'])->asKeys($cls)->all());
+		}
+
 	}

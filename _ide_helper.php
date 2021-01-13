@@ -63,6 +63,15 @@
 
 			}
 
+			/**
+			 * Creates a new collection using the items as keys and fills them with the given value
+			 * @param mixed $value The value to fill the new collection with
+			 * @return static
+			 */
+			public function asKeys($value) {
+
+			}
+
 		}
 
 		class Str {
