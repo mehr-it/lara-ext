@@ -5,4 +5,7 @@
 
 	// str macros
 	'strMacros'        => true,
+	
+	// arr macros
+	'arrMacros'        => true,
 ];

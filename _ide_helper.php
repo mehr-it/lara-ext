@@ -171,4 +171,18 @@
 
 			}
 		}
+		
+		class Arr {
+
+			/**
+			 * Recursively checks if both arrays have same key value pairs. The order of associative key/value pairs does not matter.
+			 * @param array $a The first array
+			 * @param array $b The second array
+			 * @param bool $strict True if to use strict value comparison. Note: this has no effects for keys
+			 * @return bool True if matching. Else false.
+			 */
+			public static function hasSameKeysAndValues(array $a, array $b, bool $strict = false): bool {
+				
+			}
+		}
 	}

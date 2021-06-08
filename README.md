@@ -30,6 +30,14 @@ Following macros extend the `Illuminate\Support\Collection`:
 | `sortCallbackDesc` | sort in descending order using custom sort function
 | `asKeys`           | `array_fill_keys()` for collections
 
+## Array macros
+
+Following macros extend the `Illuminate\Support\Arr`:
+
+| Macro                      | Description
+|----------------------------| ------------
+| `hasSameKeysAndValues`     | Recursively checks if both arrays have same key value pairs. The order of associative key/value pairs does not matter.
+
 ## String macros
 
 Following macros extend the `Illuminate\Support\Str`:

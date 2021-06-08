@@ -31,6 +31,10 @@
 			// include string macros
 			if (config(self::PACKAGE_NAME . '.strMacros', true))
 				include dirname(__DIR__) . '/strMacros.php';
+			
+			// include array macros
+			if (config(self::PACKAGE_NAME . '.arrMacros', true))
+				include dirname(__DIR__) . '/arrMacros.php';
 		}
 
 		/**
