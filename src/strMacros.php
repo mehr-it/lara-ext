@@ -65,6 +65,23 @@
 		return trim($value) !== '';
 	});
 
+	Str::macro('ifNotEmpty', function (?string $value, string $else = null): ?string {
+				
+		return trim($value) !== '' ? $value : $else;
+	});
+
+	Str::macro('coalesce', function (?string ...$values): ?string {
+
+		$curr = null;
+		
+		foreach ($values as $curr) {
+			if (trim($curr) !== '')
+				return $curr;
+		}
+		
+		return $curr;
+	});
+
 	Str::macro('ucFirstWords', function (?string $value, bool $forceLower = false, int $forceLowerMinLength = 0, string $splitByRegex = '[^\p{L}]+'): ?string {
 
 		if ($value === null)

@@ -217,6 +217,68 @@
 
 		}
 
+		public function testIfNotEmpty() {
+
+			$this->assertSame('a', Str::ifNotEmpty(null, 'a'));
+			$this->assertSame('a', Str::ifNotEmpty('', 'a'));
+			$this->assertSame(null, Str::ifNotEmpty('', null));
+			$this->assertSame(null, Str::ifNotEmpty(''));
+			$this->assertSame(null, Str::ifNotEmpty('  '));
+			$this->assertSame('0', Str::ifNotEmpty('0', 'a'));
+			$this->assertSame('false', Str::ifNotEmpty('false', 'a'));
+			$this->assertSame('null', Str::ifNotEmpty('null', 'a'));
+			$this->assertSame('abc', Str::ifNotEmpty('abc', 'a'));
+			$this->assertSame(' ab ', Str::ifNotEmpty(' ab ', 'a'));
+
+		}
+
+		public function testCoalesce() {
+
+			$this->assertSame(null, Str::coalesce(null));
+			$this->assertSame('', Str::coalesce(null, ''));
+			$this->assertSame(null, Str::coalesce(null, null));
+			$this->assertSame('a', Str::coalesce(null, 'a'));
+			$this->assertSame('  ', Str::coalesce(null, '  '));
+			
+			$this->assertSame('', Str::coalesce(''));
+			$this->assertSame('', Str::coalesce('', ''));
+			$this->assertSame(null, Str::coalesce('', null));
+			$this->assertSame('a', Str::coalesce('', 'a'));
+			$this->assertSame('  ', Str::ifNotEmpty('', '  '));
+
+			$this->assertSame('  ', Str::coalesce('  '));
+			$this->assertSame('', Str::coalesce('  ', ''));
+			$this->assertSame(null, Str::coalesce('  ', null));
+			$this->assertSame('a', Str::coalesce('  ', 'a'));
+			$this->assertSame('  ', Str::coalesce('  ', '  '));
+			
+			$this->assertSame('0', Str::coalesce('', '0'));
+			$this->assertSame('0', Str::coalesce(null, '0', ''));
+			$this->assertSame('a', Str::coalesce('a', '0', null));
+			$this->assertSame('0', Str::coalesce('   ', '0', 'a'));
+			$this->assertSame(' 0 ', Str::coalesce('', ' 0 ', '  '));
+			
+			$this->assertSame('false', Str::coalesce('', 'false'));
+			$this->assertSame('false', Str::coalesce(null, 'false', ''));
+			$this->assertSame('a', Str::coalesce('a', 'false', null));
+			$this->assertSame('false', Str::coalesce('   ', 'false', 'a'));
+			$this->assertSame(' false ', Str::coalesce('', ' false ', '  '));
+			
+			$this->assertSame('null', Str::coalesce('', 'null'));
+			$this->assertSame('null', Str::coalesce(null, 'null', ''));
+			$this->assertSame('a', Str::coalesce('a', 'null', null));
+			$this->assertSame('null', Str::coalesce('   ', 'null', 'a'));
+			$this->assertSame(' null ', Str::coalesce('', ' null ', '  '));
+			
+			$this->assertSame('abc', Str::coalesce('', 'abc'));
+			$this->assertSame('abc', Str::coalesce(null, 'abc', ''));
+			$this->assertSame('a', Str::coalesce('a', 'abc', null));
+			$this->assertSame('abc', Str::coalesce('   ', 'abc', 'a'));
+			$this->assertSame(' abc ', Str::coalesce('', ' abc ', '  '));
+			
+			$this->assertSame(null, Str::coalesce());
+		}
+
 		public function testReplaceInvalidUnicodeSequences() {
 
 			$this->assertSame("ab\u{FFFD}cd", Str::repairInvalidUnicodeSequences("ab\xC2\x96cd"));

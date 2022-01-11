@@ -121,11 +121,30 @@
 			}
 
 			/**
-			 * Returns if the given string is not empty and does not only contains whitespace
+			 * Returns if the given string is not empty and does not only contain whitespace
 			 * @param string|null $value The value
 			 * @return bool True if string is not empty. Else false.
 			 */
 			public static function isNotEmpty(?string $value): bool {
+
+			}
+
+			/**
+			 * Returns the first argument if it is not empty and does not only contain whitespace. Otherwise, the second argument is returned
+			 * @param string|null $value The value
+			 * @param string|null $else The value to return if first argument is empty
+			 * @return string The first argument if not empty, else the second argument
+			 */
+			public static function ifNotEmpty(?string $value, string $else = null): ?string {
+
+			}
+
+			/**
+			 * Returns the first argument which is not empty and does not only contain whitespace. If none matching, the last argument is returned.
+			 * @param string|null ...$values The arguments
+			 * @return string|null The first not empty argument or the last argument. If no argument is given, null is returned. 
+			 */
+			public static function coalesce (?string ...$values): ?string {
 
 			}
 

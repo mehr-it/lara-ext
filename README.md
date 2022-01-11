@@ -42,17 +42,19 @@ Following macros extend the `Illuminate\Support\Arr`:
 
 Following macros extend the `Illuminate\Support\Str`:
 
-| Macro              | Description
-|--------------------| ------------
-| `cast`             | Casts given value as string. If iterable is given, it's items are casted as string
-| `cutEncoding`      | truncates a string, so it does not exceed a given byte length, when converted to a given target encoding
-| `extract`          | as explode but guarantees a given result array length, eg.: `[$a, $b] = Str::extract('a:b:c', ':', 2)`
-| `isEmpty`          | returns if the given string is empty or only contains whitespace
-| `isNotEmpty`       | returns if the given string is not empty and does not only contains whitespace
-| `replaceLineBreaks`| replaces all line breaks (Linux, Windows and Mac (old and OS X)) in a string
-| `ucFirstWords`     | converts the first letter of each word to uppercase
-| `repairInvalidUnicodeSequences`     | replaces invalid unicode sequences
-| `limitMax`         | limits a string to the given max length
+| Macro                           | Description
+|---------------------------------| ------------
+| `cast`                          | Casts given value as string. If iterable is given, it's items are casted as string
+| `coalesce`                      | returns the first argument which is not empty and does not only contain whitespace
+| `cutEncoding`                   | truncates a string, so it does not exceed a given byte length, when converted to a given target encoding
+| `extract`                       | as explode but guarantees a given result array length, eg.: `[$a, $b] = Str::extract('a:b:c', ':', 2)`
+| `ifNotEmpty`                    | returns the first argument if it is not empty and does not only contain whitespace. Otherise the second argument is returned
+| `isEmpty`                       | returns if the given string is empty or only contains whitespace
+| `isNotEmpty`                    | returns if the given string is not empty and does not only contain whitespace
+| `replaceLineBreaks`             | replaces all line breaks (Linux, Windows and Mac (old and OS X)) in a string
+| `ucFirstWords`                  | converts the first letter of each word to uppercase
+| `repairInvalidUnicodeSequences` | replaces invalid unicode sequences
+| `limitMax`                      | limits a string to the given max length
 
 ## Helpers
 
